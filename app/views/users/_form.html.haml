@@ -15,5 +15,11 @@
   .field
     = f.label :portfolio_id
     = f.number_field :portfolio_id
+  .field
+    = f.label :password
+    = f.password_field :password
+  .field
+    = f.label :password_confirmation
+    = f.password_field :password_confirmation
   .actions
     = f.submit 'Save'
