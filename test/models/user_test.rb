@@ -3,7 +3,18 @@ require 'test_helper'
 class UserTest < ActiveSupport::TestCase
   def setup
     @user = users(:one)
+    @user.password = "foobar"
+    @user.password_confirmation = "foobar"
   end
+
+  test "user should respond to" do
+    assert @user.respond_to?(:name)
+    assert @user.respond_to?(:email)
+    assert @user.respond_to?(:password_digest)
+    assert @user.respond_to?(:password)
+    assert @user.respond_to?(:password_confirmation)
+  end
+
   test "user name must be present" do
     assert @user.valid?
     @user.name = ""
